@@ -4,7 +4,11 @@ import { validateDTO } from '../utils/validation'
 import { RegisterUserDto, LoginUserDto } from '../utils/dtos'
 
 export class AuthController {
-  private authService = new AuthService()
+  private authService: AuthService
+
+  constructor(auth: AuthService) {
+    this.authService = auth
+  }
 
   async register(req: Request, res: Response): Promise<Response> {
     const registerDto = new RegisterUserDto()
