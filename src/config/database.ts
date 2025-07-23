@@ -8,12 +8,12 @@ export const AppDataSource = new DataSource({
   host: dbHost || 'localhost',
   port: dbPort ? parseInt(dbPort, 10) : 5432,
   username: dbUser || 'postgres',
-  password: dbPass || 'root',
-  database: dbName || 'BackendMapVX',
+  password: dbPass || 'postgres',
+  database: dbName || 'postgres',
   synchronize: nodeEnv === 'dev',
   logging: nodeEnv === 'dev',
-  entities: ['src/adapters/typeorm/schema/*.ts'],
-  migrations: ['src/infrastructure/orm/migrations/*.ts'],
+  entities: ['src/entities/*.ts'],
+  migrations: ['src/migrations/*.ts'],
 })
 
 export const initDatabase = async () => {
